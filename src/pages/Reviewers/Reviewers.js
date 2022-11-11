@@ -11,13 +11,32 @@ const Reviewers = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:1000/reviewers?email=${user.email}`)
+        fetch(`http://localhost:1000/reviewers?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setReviewers(data)
             })
     }, [user?.email])
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to delete?');
+        if (proceed) {
+            fetch(`http://localhost:1000/reviewers/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = reviewers.filter(rvw => rvw._id !== id)
+                        setReviewers(remaining);
+                    }
+                })
+        }
+
+    }
 
 
 
@@ -43,6 +62,7 @@ const Reviewers = () => {
                         reviewers.map(review => <ReviewersRow
                             key={review._id}
                             review={review}
+                            handleDelete={handleDelete}
                         ></ReviewersRow>)
                     }
 

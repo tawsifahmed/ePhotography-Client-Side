@@ -1,22 +1,10 @@
 import React from 'react';
 
-const ReviewersRow = ({ review }) => {
+const ReviewersRow = ({ review, handleDelete }) => {
     const { _id, serviceName, reviewer, price, email, phone, message } = review;
 
 
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, you want to delete?');
-        if (proceed) {
-            fetch(`http://localhost:1000/reviewers/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
-        }
 
-    }
 
     return (
         <div className='container'>

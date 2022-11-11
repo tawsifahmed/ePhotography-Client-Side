@@ -5,6 +5,14 @@ import Button from 'react-bootstrap/Button';
 
 
 const Login = () => {
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
     return (
         <Container className='container'>
             <Row>
@@ -22,7 +30,7 @@ const Login = () => {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button onSubmit={handleLogin} variant="primary" type="submit">
                             Login
 
                         </Button>

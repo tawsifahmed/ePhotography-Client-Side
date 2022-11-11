@@ -7,7 +7,7 @@ import img3 from '../../../src/assets/banner3.jpeg'
 
 const Banner = () => {
     return (
-        <Carousel className='container mt-4'>
+        <Carousel className='my-5'>
             <Carousel.Item>
                 <div className='d-flex justify-content-center'>
                     <img

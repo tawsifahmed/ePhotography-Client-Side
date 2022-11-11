@@ -2,6 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const ServiceCard = ({ service }) => {
 
@@ -9,7 +12,13 @@ const ServiceCard = ({ service }) => {
     return (
         <div className='text-justify'>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={img} />
+
+                <PhotoProvider>
+                    <PhotoView variant="top" src={img}>
+                        <img src={img} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
+                {/* <Card.Img variant="top" src={img} /> */}
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>

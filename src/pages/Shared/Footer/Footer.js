@@ -5,7 +5,7 @@ import { CDBFooter, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 
 const Footer = () => {
     return (
-        <CDBFooter className="shadow">
+        <CDBFooter className="shadow bg-dark text-white">
             <CDBBox
                 display="flex"
                 justifyContent="between"
@@ -20,11 +20,11 @@ const Footer = () => {
                             src={logo}
                             width="100px"
                         />
-                        <span className="ml-4 h5 mb-0 font-weight-bold">eFitTrainer</span>
+                        <span className="ml-4 h5 mb-0 font-weight-bold text-white">ePhotography</span>
                     </a>
                 </CDBBox>
                 <CDBBox>
-                    <small className="ml-2">&copy; Devwares, 2022. All rights reserved.</small>
+                    <small className="ml-2">&copy; ePhotography, 2022. All rights reserved.</small>
                 </CDBBox>
                 <CDBBox display="flex">
                     <CDBBtn flat color="dark" className="p-2">

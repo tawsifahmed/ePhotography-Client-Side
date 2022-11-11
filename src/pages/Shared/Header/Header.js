@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import logo from '../../../../src/logo.svg'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+
+    const { user, logOut } = useContext(AuthContext)
+
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -25,13 +36,40 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                            {
+                                user?.email ?
+                                    <>
+
+                                        <Nav.Link >
+                                            <Link>Add Service</Link>
+                                        </Nav.Link>
+                                        <Nav.Link >
+                                            <Link to='/reviews'>Reviews</Link>
+                                        </Nav.Link>
+                                    </>
+                                    :
+                                    <></>
+
+                            }
                         </Nav>
                         <Nav>
                             <Nav.Link >
-                                <Link className='me-2' to='/login'>Login</Link>
-                                <Link to='/register'>Register</Link>
+                                {
+                                    user?.email ?
+                                        <>
+                                            <Button variant="link" onClick={handleLogOut}>Logout</Button>
+
+                                        </>
+                                        :
+                                        <>
+                                            <Link className='me-2' to='/login'>Login</Link>
+                                            <Link to='/register'>Register</Link>
+                                        </>
+                                }
+
+
+
+
                             </Nav.Link>
 
                         </Nav>

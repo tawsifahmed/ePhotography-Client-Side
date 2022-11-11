@@ -1,8 +1,10 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 import logo from '../../../../src/logo.svg'
 
 const Header = () => {
@@ -10,7 +12,7 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand className='d-flex align-items-center' href="#home">
+                    <Navbar.Brand className='d-flex align-items-center' as={Link} to="/">
                         <img
                             src={logo}
                             width="100"
@@ -27,10 +29,11 @@ const Header = () => {
                             <Nav.Link href="#pricing">Pricing</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                            <Nav.Link >
+                                <Link className='me-2' to='/login'>Login</Link>
+                                <Link to='/register'>Register</Link>
                             </Nav.Link>
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

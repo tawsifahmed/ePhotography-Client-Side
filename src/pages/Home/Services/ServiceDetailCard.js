@@ -17,17 +17,43 @@ const ServiceDetailCard = () => {
         const form = event.target;
         const name = `${form.firstName.value} ${form.lastName.value}`;
         const email = user?.email || 'unregistered';
+        const phone = form.phone.value;
         const message = form.message.value;
 
-        const order = {
+        const reviewer = {
             service: _id,
             serviceName: title,
             price,
-            customer: name,
+            reviewer: name,
             email,
             message
 
         }
+
+        // if (phone.length > 11) {
+        //     alert('Phone number should be 11 characters or longer')
+
+        // }
+        // else{
+
+        // }
+        fetch('http://localhost:1000/reviewers', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviewer)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('Review successfully given')
+                    form.reset();
+                }
+            })
+            .catch(error => console.error(error));
+
     }
 
     return (
@@ -63,14 +89,16 @@ const ServiceDetailCard = () => {
                                 <Form.Control name="lastName" type="name" placeholder="Last Name" />
                                 <Form.Label></Form.Label>
                                 <Form.Control name="email" type="email" placeholder="Your email" defaultValue={user?.email} readOnly />
+                                <Form.Label></Form.Label>
+                                <Form.Control name="phone" type="name" placeholder="Phone Number" required />
                             </Form.Group>
                             <Form.Group>
                                 <Form.Label>Your Review</Form.Label>
-                                <Form.Control name="message" placeholder='write something'></Form.Control>
+                                <Form.Control name="message" type="name" placeholder='write something' required></Form.Control>
                             </Form.Group>
 
 
-                            <Button variant="primary" type="submit" value="Give Your Review">
+                            <Button className='mt-3' variant="primary" type="submit" value="Give Your Review">
                                 Submit
                             </Button>
                         </Form>

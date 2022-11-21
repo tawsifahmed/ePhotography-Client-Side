@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import ServiceDetailCardReviews from './ServiceDetailCardReviews';
+
 
 const ServiceDetailCard = () => {
     const { _id, title, img, price, description } = useLoaderData();
@@ -30,13 +33,6 @@ const ServiceDetailCard = () => {
 
         }
 
-        // if (phone.length > 11) {
-        //     alert('Phone number should be 11 characters or longer')
-
-        // }
-        // else{
-
-        // }
         fetch('http://localhost:1000/reviewers', {
             method: 'POST',
             headers: {
@@ -61,8 +57,14 @@ const ServiceDetailCard = () => {
             <Container className='container my-5'>
                 <Row>
                     <Col lg="7">
+
                         <Card style={{ width: '30rem' }}>
-                            <Card.Img variant="top" src={img} />
+                            <h3 className='text-center text-muted mt-3'>{title} Details</h3>
+                            <PhotoProvider>
+                                <PhotoView variant="top" src={img}>
+                                    <img src={img} alt="" />
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>{title}</Card.Title>
                                 <Card.Text>
@@ -79,9 +81,9 @@ const ServiceDetailCard = () => {
                     {/* review section */}
 
                     <Col className='mt-4' lg="4">
-                        <h2 className='text-center text-decoration-underline mb-5'>Review Section</h2>
+                        <h3 className='text-center text-decoration-underline mb-5'>Review Section</h3>
+                        <ServiceDetailCardReviews _id={_id}></ServiceDetailCardReviews>
                         <Form onSubmit={handlePlaceReview}>
-                            <h3 className='text-center text-muted'>{title}</h3>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label></Form.Label>
                                 <Form.Control name="firstName" type="name" placeholder="First Name" />
@@ -102,6 +104,7 @@ const ServiceDetailCard = () => {
                                 Submit
                             </Button>
                         </Form>
+
                     </Col>
                 </Row>
 

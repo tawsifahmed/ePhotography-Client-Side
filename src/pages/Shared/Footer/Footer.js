@@ -20,7 +20,7 @@ const Footer = () => {
                             src={logo}
                             width="100px"
                         />
-                        <span className="ml-4 h5 mb-0 font-weight-bold text-white">ePhotography</span>
+                        <span className="ml-4 h5 mb-0 font-weight-bold text-white">e<span className='text-danger fst-italic'>Photography</span></span>
                     </a>
                 </CDBBox>
                 <CDBBox>

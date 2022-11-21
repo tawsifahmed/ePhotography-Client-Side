@@ -43,12 +43,12 @@ const Reviewers = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container mx-auto'>
             <h2 className='text-center'>you have reviews: {reviewers.length} </h2>
             <Table striped>
                 <thead>
 
-                    <tr className='d-flex justify-content-center'>
+                    <tr className=''>
                         <th>#</th>
                         <th className='ps-5'>Service-Name</th>
                         <th className='pe-5'>Email</th>

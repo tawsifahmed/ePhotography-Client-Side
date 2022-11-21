@@ -23,15 +23,15 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand className='d-flex align-items-center' as={Link} to="/">
+                    <Navbar.Brand className='d-flex align-items-center me-3' as={Link} to="/">
                         <img
                             src={logo}
-                            width="100"
+                            width="90"
 
                             className="d-inline-block align-top"
                             alt="React Bootstrap logo"
                         />{' '}
-                        <h3>ePhotography</h3>
+                        <h3>e<span className='text-danger fst-italic text-opacity-75'>Photography</span></h3>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

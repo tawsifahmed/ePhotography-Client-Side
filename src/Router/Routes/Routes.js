@@ -5,6 +5,7 @@ import ServiceDetailCard from "../../pages/Home/Services/ServiceDetailCard";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Reviewers from "../../pages/Reviewers/Reviewers";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/reviews',
-                element: <Reviewers></Reviewers>
+                element: <PrivateRoute><Reviewers></Reviewers></PrivateRoute>
             }
         ]
     }

@@ -7,16 +7,16 @@ const ReviewersRow = ({ review, handleDelete }) => {
 
 
     return (
-        <div className='container'>
-            <tr className='d-flex justify-content-center'>
-                <td>
-                    <button onClick={() => handleDelete(_id)}>DLT</button>
-                </td>
-                <td className='ps-5'>{serviceName}</td>
-                <td className='pe-5'>{email}</td>
-                <td className='ps-5'>{message}</td>
-            </tr>
-        </div>
+
+        <tr className=''>
+            <td>
+                <button onClick={() => handleDelete(_id)}>DLT</button>
+            </td>
+            <td className='ps-5'>{serviceName}</td>
+            <td className='pe-5'>{email}</td>
+            <td className='ps-5'>{message}</td>
+        </tr>
+
     );
 };
 

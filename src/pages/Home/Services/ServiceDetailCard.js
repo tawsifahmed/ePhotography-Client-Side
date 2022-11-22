@@ -44,7 +44,7 @@ const ServiceDetailCard = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Review successfully given')
+                    alert('Review successfully given. Please refresh to see your review.')
                     form.reset();
                 }
             })
@@ -83,27 +83,61 @@ const ServiceDetailCard = () => {
                     <Col className='mt-4' lg="4">
                         <h3 className='text-center text-decoration-underline mb-5'>Review Section</h3>
                         <ServiceDetailCardReviews _id={_id}></ServiceDetailCardReviews>
-                        <Form onSubmit={handlePlaceReview}>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label></Form.Label>
-                                <Form.Control name="firstName" type="name" placeholder="First Name" />
-                                <Form.Label></Form.Label>
-                                <Form.Control name="lastName" type="name" placeholder="Last Name" />
-                                <Form.Label></Form.Label>
-                                <Form.Control name="email" type="email" placeholder="Your email" defaultValue={user?.email} readOnly />
-                                <Form.Label></Form.Label>
-                                <Form.Control name="phone" type="name" placeholder="Phone Number" required />
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label>Your Review</Form.Label>
-                                <Form.Control name="message" type="name" placeholder='write something' required></Form.Control>
-                            </Form.Group>
+                        <br />
+                        <br />
+                        <h4 className='text-center text-decoration-underline'>Your Review</h4>
+                        {
+                            user?.email ?
+                                <>
+                                    <Form onSubmit={handlePlaceReview}>
+                                        <Form.Group className="" controlId="formBasicEmail">
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="firstName" type="name" placeholder="First Name" />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="lastName" type="name" placeholder="Last Name" />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="email" type="email" placeholder="Your email" defaultValue={user?.email} readOnly />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="phone" type="name" placeholder="Phone Number" required />
+                                        </Form.Group>
+                                        <Form.Group>
+                                            <Form.Label>Your Review</Form.Label>
+                                            <Form.Control name="message" type="name" placeholder='write something' required></Form.Control>
+                                        </Form.Group>
 
 
-                            <Button className='mt-3' variant="primary" type="submit" value="Give Your Review">
-                                Submit
-                            </Button>
-                        </Form>
+                                        <Button className='mt-3' variant="primary" type="submit" value="Give Your Review">
+                                            Submit
+                                        </Button>
+                                    </Form>
+                                </>
+                                :
+                                <div>
+                                    <Form onSubmit={handlePlaceReview}>
+                                        <Form.Group className="" controlId="formBasicEmail">
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="firstName" type="name" placeholder="First Name" disabled />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="lastName" type="name" placeholder="Last Name" disabled />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="email" type="email" placeholder="Your email" defaultValue={user?.email} readOnly disabled />
+                                            <Form.Label></Form.Label>
+                                            <Form.Control name="phone" type="name" placeholder="Phone Number" required disabled />
+                                        </Form.Group>
+                                        <Form.Group>
+                                            <Form.Label>Your Review</Form.Label>
+                                            <Form.Control name="message" type="name" placeholder='write something' required disabled></Form.Control>
+                                        </Form.Group>
+
+
+                                        <Button className='mt-3' variant="primary" type="submit" value="Give Your Review" disabled>
+                                            Submit
+                                        </Button>
+                                    </Form>
+                                    <br />
+                                    <h5>Please <Link to='/login'>Login</Link> to give your review</h5>
+                                </div>
+                        }
 
                     </Col>
                 </Row>

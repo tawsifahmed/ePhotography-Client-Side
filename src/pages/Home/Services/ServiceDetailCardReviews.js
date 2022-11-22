@@ -18,7 +18,7 @@ const ServiceDetailCardReviews = ({ _id }) => {
 
     return (
         <div className='container mx-auto'>
-            <h2 className='text-center'>All reviews: Total {reviewers.length} </h2>
+            <h4 className='text-center text-decoration-underline'>All reviews: Total {reviewers.length} </h4>
             <Table striped>
                 <thead className=''>
 

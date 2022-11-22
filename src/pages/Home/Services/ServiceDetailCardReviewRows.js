@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const ServiceDetailCardReviewRows = ({ review }) => {
     const { _id, serviceName, reviewer, price, email, phone, message } = review;
+    const { user } = useContext(AuthContext);
 
 
 
 
     return (
 
-        <tr className=''>
+        <tr>
             <td>
                 *
             </td>

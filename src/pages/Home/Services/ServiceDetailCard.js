@@ -9,7 +9,6 @@ import Card from 'react-bootstrap/Card';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ServiceDetailCardReviews from './ServiceDetailCardReviews';
 
-
 const ServiceDetailCard = () => {
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
@@ -22,6 +21,7 @@ const ServiceDetailCard = () => {
         const email = user?.email || 'unregistered';
         const phone = form.phone.value;
         const message = form.message.value;
+        const photo = user?.photoURL;
 
         const reviewer = {
             service: _id,
@@ -29,7 +29,8 @@ const ServiceDetailCard = () => {
             price,
             reviewer: name,
             email,
-            message
+            message,
+            photo
 
         }
 

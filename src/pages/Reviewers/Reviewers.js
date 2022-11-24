@@ -31,7 +31,8 @@ const Reviewers = () => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
                         const remaining = reviewers.filter(rvw => rvw._id !== id)
-                        setReviewers(remaining);
+                        setReviewers(remaining)
+
                     }
                 })
         }
@@ -44,7 +45,7 @@ const Reviewers = () => {
 
     return (
         <div className='container mx-auto'>
-            <h2 className='text-center'>you have reviews: {reviewers.length} </h2>
+
             <Table striped>
                 <thead>
 
@@ -68,6 +69,10 @@ const Reviewers = () => {
 
                 </tbody>
             </Table>
+            <div className='d-flex align-items-center justify-content-center pt-5'>
+
+                <h2 className='text-center pt-5'>you have {reviewers.length} reviews</h2>
+            </div>
         </div >
     );
 };

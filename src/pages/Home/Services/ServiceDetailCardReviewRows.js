@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Image } from 'react-bootstrap';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const ServiceDetailCardReviewRows = ({ review }) => {
     const { _id, serviceName, reviewer, price, email, photo, message } = review;
@@ -17,7 +16,9 @@ const ServiceDetailCardReviewRows = ({ review }) => {
             <td className=''>{serviceName}</td>
             <td className=''>
                 <div className='d-flex'>
-                    {<Image style={{ height: '40px' }} roundedCircle src={photo}></Image>}
+                    <div className='me-1'>
+                        {<Image style={{ height: '40px' }} rounded src={photo}></Image>}
+                    </div>
                     {reviewer}
                 </div>
             </td>

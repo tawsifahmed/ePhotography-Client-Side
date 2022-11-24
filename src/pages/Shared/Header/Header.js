@@ -1,18 +1,20 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaGoogle, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../../src/logo.svg'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-
-
+    const [error, setError] = useState('');
     const { user, logOut, providerLogin } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleLogOut = () => {
@@ -29,6 +31,8 @@ const Header = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('');
+                navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
     };
@@ -58,7 +62,7 @@ const Header = () => {
                                             <Link>Add Service</Link>
                                         </Nav.Link>
                                         <Nav.Link >
-                                            <Link to='/reviews'>Reviews</Link>
+                                            <Link to='/reviews'>My Reviews</Link>
                                         </Nav.Link>
                                     </>
                                     :

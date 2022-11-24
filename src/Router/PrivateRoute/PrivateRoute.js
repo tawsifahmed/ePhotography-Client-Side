@@ -11,10 +11,10 @@ const PrivateRoute = ({ children }) => {
         return <div className='d-flex justify-content-center align-items-center mt-5 pt-5'><Spinner className='mt-5' animation="border" variant="primary" /></div>
     }
 
-    if (user) {
-        return children;
+    if (!user) {
+        return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
     }
-    return <Navigate state={{ from: location }} replace></Navigate>
+    return children;
 };
 
 export default PrivateRoute;

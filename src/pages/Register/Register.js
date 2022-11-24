@@ -3,12 +3,20 @@ import React, { useContext, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser } = useContext(AuthContext);
+    const { createUser, providerLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -28,11 +36,28 @@ const Register = () => {
             });
     }
 
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.log(error))
+    };
+
     return (
         <Container className='container'>
             <Row>
                 <Col lg="4">
-                    <Form onSubmit={handleSubmit} className='m-5'>
+
+                </Col>
+                <Col className='border p-4 bg-light' lg="4">
+                    <h4 className='text-center text-decoration-underline'>Register Form</h4>
+                    <Form onSubmit={handleSubmit} className='mb-3'>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Full Name</Form.Label>
                             <Form.Control name="name" type="name" placeholder="Full Name" />
@@ -65,7 +90,12 @@ const Register = () => {
                             Already have an account? Then, <Link to='/login'>Login.</Link>
                         </Form.Text>
                     </Form>
+                    <h5 className='text-center'>Or sign up with,</h5>
+                    <div className='text-center d-flex justify-content-center'>
+                        <Button onClick={handleGoogleSignIn} className='me-2 rounded bg-white d-flex' variant="outline-primary"><FaGoogle className='mt-1'></FaGoogle> <h5>oogle</h5></Button>
+                    </div>
                 </Col>
+
                 <Col lg="4">
 
                 </Col>

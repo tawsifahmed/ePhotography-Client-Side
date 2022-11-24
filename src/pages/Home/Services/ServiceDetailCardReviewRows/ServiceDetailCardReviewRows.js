@@ -17,7 +17,7 @@ const ServiceDetailCardReviewRows = ({ review }) => {
             <td className=''>
                 <div className='d-flex'>
                     <div className='me-1'>
-                        {<Image style={{ height: '40px' }} rounded src={photo}></Image>}
+                        {<Image style={{ height: '39px' }} rounded src={photo}></Image>}
                     </div>
                     {reviewer}
                 </div>

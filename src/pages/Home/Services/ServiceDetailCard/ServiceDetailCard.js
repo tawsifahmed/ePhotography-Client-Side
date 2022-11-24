@@ -6,8 +6,9 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import ServiceDetailCardReviews from './ServiceDetailCardReviews';
+import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import ServiceDetailCardReviews from '../ServiceDetailCardReviews/ServiceDetailCardReviews';
+import './ServiceDetailCard.css'
 
 const ServiceDetailCard = () => {
     const { _id, title, img, price, description } = useLoaderData();
@@ -69,7 +70,7 @@ const ServiceDetailCard = () => {
                             <Card.Body>
                                 <Card.Title>{title}</Card.Title>
                                 <Card.Text>
-                                    {description}
+                                    <p className='description'>{description}</p>
                                 </Card.Text>
                                 <h6 className='text-success'>Price: ${price}</h6>
                                 <Link>

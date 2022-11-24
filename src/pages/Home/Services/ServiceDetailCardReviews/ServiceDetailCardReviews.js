@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import ServiceDetailCardReviewRows from './ServiceDetailCardReviewRows';
+import ServiceDetailCardReviewRows from '../ServiceDetailCardReviewRows/ServiceDetailCardReviewRows';
 
 const ServiceDetailCardReviews = ({ _id }) => {
 

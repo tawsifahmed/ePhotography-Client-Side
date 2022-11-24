@@ -2,7 +2,8 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Banner from './Banner';
-import Services from './Services/Services';
+import Services from './Services/Services/Services';
+import './Home.css'
 
 const Home = () => {
     return (
@@ -11,10 +12,11 @@ const Home = () => {
             <Services></Services>
             <div className='text-center'>
 
-                <Button>
-
-                    <Link to='/services'><h5 className='text-center text-white'>View More</h5></Link>
-                </Button>
+                <Link to='/services'>
+                    <Button className='viewAll' variant='danger'>
+                        <h5 className='text-center text-white pt-2'>View More</h5>
+                    </Button>
+                </Link>
             </div>
         </div>
     );

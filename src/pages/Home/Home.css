@@ -1,0 +1,20 @@
+.viewAll {
+
+    color: whitesmoke;
+    background-color: crimson;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8.5px;
+    transition: 0.9s ease;
+
+}
+
+
+
+.viewAll:hover {
+    background-color: tomato;
+    color: black;
+    border-radius: 9px;
+    padding-left: 22px;
+    padding-right: 22px;
+}

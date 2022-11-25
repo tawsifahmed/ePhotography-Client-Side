@@ -78,22 +78,24 @@ const Register = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control name="password" type="password" placeholder="Password" required />
                         </Form.Group>
-
-                        <Button variant="primary" type="submit">
+                        <div className='text-center'><Button variant="primary" type="submit">
                             Register
-                        </Button>
-                        <Form.Text className="text-danger">
+                        </Button></div>
+
+                        <Form.Text className="text-danger text-center">
                             {error}
                         </Form.Text>
-                        <br></br>
-                        <Form.Text>
-                            Already have an account? Then, <Link to='/login'>Login.</Link>
-                        </Form.Text>
+
+                        <div className='mb-2 mt-3'>
+                            <h5 className='text-center'>Or sign up with,</h5>
+                            <div className='text-center d-flex justify-content-center'>
+                                <Button onClick={handleGoogleSignIn} className='rounded d-flex' variant="outline-primary"><FaGoogle className='mt-1'></FaGoogle> <h5 className='mb-1'>oogle</h5></Button>
+                            </div>
+                        </div>
+
+                        <p className='text-center'>Already have an account? Then, <Link to='/login'>Login.</Link></p>
                     </Form>
-                    <h5 className='text-center'>Or sign up with,</h5>
-                    <div className='text-center d-flex justify-content-center'>
-                        <Button onClick={handleGoogleSignIn} className='me-2 rounded bg-white d-flex' variant="outline-primary"><FaGoogle className='mt-1'></FaGoogle> <h5>oogle</h5></Button>
-                    </div>
+
                 </Col>
 
                 <Col lg="4">

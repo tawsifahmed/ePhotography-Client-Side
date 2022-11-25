@@ -90,12 +90,14 @@ const Header = () => {
 
                             </Nav.Link>
                             <Nav.Link>
-                                {user?.photoURL ?
-                                    <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL}>
+                                <div>
+                                    {user?.photoURL ?
+                                        <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL}>
 
-                                    </Image>
-                                    : <FaUser></FaUser>
-                                }
+                                        </Image>
+                                        : <FaUser></FaUser>
+                                    }
+                                </div>
                             </Nav.Link>
 
                         </Nav>

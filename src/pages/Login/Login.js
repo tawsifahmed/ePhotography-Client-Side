@@ -71,25 +71,25 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control name="password" type="password" placeholder="Password" required />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
-                        <Button onSubmit={handleSubmit} variant="primary" type="submit">
-                            Login
-                        </Button>
+
+                        <div className='text-center'>
+                            <Button onSubmit={handleSubmit} variant="primary" type="submit">
+                                Login
+                            </Button>
+                        </div>
                         <Form.Text className="text-danger">
                             {error}
                         </Form.Text>
-                        <br></br>
-                        <Form.Text>
-                            New to this site? Then, <Link to='/register'>Register.</Link>
-                        </Form.Text>
+                        <div className='mb-2 mt-3'>
+                            <h5 className='text-center'>Or Log in with,</h5>
+                            <div className='text-center d-flex justify-content-center'>
+                                <Button onClick={handleGoogleSignIn} className=' rounded d-flex' variant="outline-primary"><FaGoogle className='mt-1'></FaGoogle> <h5 className='mb-1'>oogle</h5></Button>
+                            </div>
+                        </div>
+
+                        <p className='text-center'> New to this site? Then, <Link to='/register'>Register.</Link></p>
+
                     </Form>
-                    <br />
-                    <h5 className='text-center'>Or Log in with,</h5>
-                    <div className='text-center d-flex justify-content-center'>
-                        <Button onClick={handleGoogleSignIn} className='me-2 rounded bg-white d-flex' variant="outline-primary"><FaGoogle className='mt-1'></FaGoogle> <h5>oogle</h5></Button>
-                    </div>
                 </Col>
 
                 <Col lg="4">

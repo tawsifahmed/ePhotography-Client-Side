@@ -103,8 +103,9 @@ const ServiceDetailCard = () => {
                                             <Form.Control name="phone" type="name" placeholder="Phone Number" required />
                                         </Form.Group>
                                         <Form.Group>
+                                            <br></br>
                                             <Form.Label>Your Review</Form.Label>
-                                            <Form.Control name="message" type="name" placeholder='write something' required></Form.Control>
+                                            <Form.Control className='p-5' name="message" type="name" placeholder='write your review' required></Form.Control>
                                         </Form.Group>
 
 

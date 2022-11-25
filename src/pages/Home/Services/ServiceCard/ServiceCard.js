@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
                 {/* <Card.Img variant="top" src={img} /> */}
                 <Card.Body>
 
-                    <Card.Title className='fw-bolder'>{title}</Card.Title>
+                    <Card.Title className='fs-5 fw-bolder'>{title}</Card.Title>
                     <Card.Text>
                         <p className='descrip'> {description.slice(0, 100)}....</p>
                     </Card.Text>

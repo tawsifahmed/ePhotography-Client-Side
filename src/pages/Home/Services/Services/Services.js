@@ -13,7 +13,7 @@ const Services = () => {
     return (
         <div className='mt-5 container mb-5'>
             <div>
-                <h2 className='text-decoration-underline mb-4 text-center'>My Services</h2>
+                <h3 className='text-decoration-underline mb-4 text-center'>My Services</h3>
             </div>
             <div className='row row-cols-xl-4 row-cols-md-3 row-cols-1 gap-3 d-flex justify-content-center'>
                 {

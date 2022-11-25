@@ -10,7 +10,7 @@ const AllServices = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div className='mt-5 container mb-5'>
+        <div className='mt-3 container mb-5'>
             <div>
                 <h2 className='text-decoration-underline mb-4 text-center'>My Services</h2>
             </div>

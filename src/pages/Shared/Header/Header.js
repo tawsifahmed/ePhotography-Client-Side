@@ -53,16 +53,21 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav>
+                            <Nav.Link className='fw-semibold' as={Link} to='/blog'>
+                                Blog
+                            </Nav.Link>
+                        </Nav>
                         <Nav className="me-auto">
                             {
                                 user?.email ?
                                     <>
 
-                                        <Nav.Link >
-                                            <Link to='/add-service'>Add Service</Link>
+                                        <Nav.Link className='fw-semibold' as={Link} to='/add-service'>
+                                            Add Service
                                         </Nav.Link>
-                                        <Nav.Link >
-                                            <Link to='/reviews'>My Reviews</Link>
+                                        <Nav.Link className='fw-semibold' as={Link} to='/reviews'>
+                                            My Reviews
                                         </Nav.Link>
                                     </>
                                     :

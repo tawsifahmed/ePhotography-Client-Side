@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -11,10 +11,15 @@ import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser, providerLogin } = useContext(AuthContext);
+    const { createUser, providerLogin, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     useTitle('Register');
+
+    if (loading) {
+        return <div className='d-flex justify-content-center align-items-center mt-5 pt-5'><Spinner className='mt-5' animation="border" variant="primary" /></div>
+    }
+
 
     const from = location.state?.from?.pathname || '/';
 
@@ -22,15 +27,19 @@ const Register = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
+        const displayName = form.name.value;
         const email = form.email.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
 
-        createUser(email, password)
+        createUser(email, password, displayName, photoURL)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 setError('');
                 form.reset();
+                setError('');
+                navigate(from, { replace: true })
             })
             .catch(e => {
                 console.error(e);
@@ -60,12 +69,12 @@ const Register = () => {
                 <Col className='border p-4 bg-light' lg="4">
                     <h4 className='text-center text-decoration-underline'>Register Form</h4>
                     <Form onSubmit={handleSubmit} className='mb-3'>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Full Name</Form.Label>
                             <Form.Control name="name" type="name" placeholder="Full Name" />
 
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Group className="mb-3" controlId="formBasicPhoto">
                             <Form.Label>Photo URL</Form.Label>
                             <Form.Control name="photoURL" type="text" placeholder="Photo Url" />
 
@@ -73,7 +82,6 @@ const Register = () => {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control name="email" type="email" placeholder="Enter email" required />
-
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">

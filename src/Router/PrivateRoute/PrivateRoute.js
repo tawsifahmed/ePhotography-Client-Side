@@ -5,8 +5,8 @@ import { Spinner } from 'react-bootstrap';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-
     const location = useLocation();
+
     if (loading) {
         return <div className='d-flex justify-content-center align-items-center mt-5 pt-5'><Spinner className='mt-5' animation="border" variant="primary" /></div>
     }

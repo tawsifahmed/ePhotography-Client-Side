@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -11,10 +11,14 @@ import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, providerLogin } = useContext(AuthContext)
+    const { signIn, providerLogin, loading } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     useTitle('Login')
+
+    if (loading) {
+        return <div className='d-flex justify-content-center align-items-center mt-5 pt-5'><Spinner className='mt-5' animation="border" variant="primary" /></div>
+    }
 
     const from = location.state?.from?.pathname || '/';
 

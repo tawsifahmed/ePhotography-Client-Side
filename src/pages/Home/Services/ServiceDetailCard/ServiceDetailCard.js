@@ -9,10 +9,12 @@ import Card from 'react-bootstrap/Card';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import ServiceDetailCardReviews from '../ServiceDetailCardReviews/ServiceDetailCardReviews';
 import './ServiceDetailCard.css'
+import useTitle from '../../../../hooks/useTitle';
 
 const ServiceDetailCard = () => {
     const { _id, title, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+    useTitle('Service Detail');
 
 
     const handlePlaceReview = event => {

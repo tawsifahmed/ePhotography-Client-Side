@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import PageError from "../../pages/404/PageError";
 import Blog from "../../pages/Blog/Blog";
 import Home from "../../pages/Home/Home/Home";
 import AddService from "../../pages/Home/Services/AddService/AddService";
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageError></PageError>
     }
 ]);
 

@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../../../hooks/useTitle';
 
 
 const AddService = () => {
     const notify = () => toast("Service successfully added. Check home/services page");
+    useTitle('Add Service');
 
     const handleAddService = event => {
         event.preventDefault();

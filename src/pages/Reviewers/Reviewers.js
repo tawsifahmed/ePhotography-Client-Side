@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Table from 'react-bootstrap/Table';
 import ReviewersRow from './ReviewersRow';
+import useTitle from '../../hooks/useTitle';
 
 
 
@@ -9,6 +10,7 @@ import ReviewersRow from './ReviewersRow';
 const Reviewers = () => {
     const { user } = useContext(AuthContext);
     const [reviewers, setReviewers] = useState([])
+    useTitle('My Reviews')
 
 
 

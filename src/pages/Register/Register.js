@@ -7,12 +7,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState('');
     const { createUser, providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Register');
 
     const from = location.state?.from?.pathname || '/';
 

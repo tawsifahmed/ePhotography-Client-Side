@@ -8,7 +8,7 @@ import img3 from '../../../assets/banner3.jpeg'
 const Banner = () => {
     return (
         <div>
-            <h2 className='text-center'>Welcome to e<span className='text-danger'>Photography</span></h2>
+            <h1 className='text-center'>Welcome to e<span className='text-danger'>Photography</span></h1>
             <h3 className='text-center mb-3 fw-light text-dark'>Here, you can find various type of photography services.</h3>
             <Carousel className='mb-5'>
                 <Carousel.Item>

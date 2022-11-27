@@ -8,20 +8,26 @@ import useTitle from '../../hooks/useTitle';
 
 
 const Reviewers = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviewers, setReviewers] = useState([])
     useTitle('My Reviews')
 
-
-
     useEffect(() => {
-        fetch(`http://localhost:1000/reviewers?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:1000/reviewers?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json();
+            })
             .then(data => {
-                console.log(data)
                 setReviewers(data)
             })
-    }, [user?.email])
+    }, [user?.email, logOut])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
@@ -42,10 +48,6 @@ const Reviewers = () => {
         }
 
     }
-
-
-
-
 
     return (
         <div className='container mx-auto'>

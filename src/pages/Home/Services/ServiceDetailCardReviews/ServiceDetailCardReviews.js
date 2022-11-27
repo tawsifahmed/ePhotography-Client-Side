@@ -7,7 +7,7 @@ const ServiceDetailCardReviews = ({ _id }) => {
     const [reviewers, setReviewers] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:1000/reviewers?service=${_id}`)
+        fetch(`http://localhost:1000/reviewers1?service=${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)

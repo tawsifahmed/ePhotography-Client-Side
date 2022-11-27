@@ -37,7 +37,7 @@ const ServiceDetailCard = () => {
 
         }
 
-        fetch('http://localhost:1000/reviewers', {
+        fetch('https://a11-server-side.vercel.app/reviewers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

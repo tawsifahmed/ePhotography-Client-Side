@@ -43,7 +43,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('http://localhost:1000/jwt', {
+                fetch('https://a11-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': ' application/json'
@@ -81,7 +81,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 // get jwt token
-                fetch('http://localhost:1000/jwt', {
+                fetch('https://a11-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': ' application/json'

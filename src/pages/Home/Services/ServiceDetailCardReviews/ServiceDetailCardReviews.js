@@ -7,7 +7,7 @@ const ServiceDetailCardReviews = ({ _id }) => {
     const [reviewers, setReviewers] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:1000/reviewers1?service=${_id}`)
+        fetch(`https://a11-server-side.vercel.app/reviewers1?service=${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)

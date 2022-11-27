@@ -13,7 +13,7 @@ const Reviewers = () => {
     useTitle('My Reviews')
 
     useEffect(() => {
-        fetch(`http://localhost:1000/reviewers?email=${user?.email}`, {
+        fetch(`https://a11-server-side.vercel.app/reviewers?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -32,7 +32,7 @@ const Reviewers = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`http://localhost:1000/reviewers/${id}`, {
+            fetch(`https://a11-server-side.vercel.app/reviewers/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('token')}`

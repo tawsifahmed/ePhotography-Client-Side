@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../../src/logo.svg'
-import { CDBFooter, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { CDBFooter, CDBBox, } from 'cdbreact';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 

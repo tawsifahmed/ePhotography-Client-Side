@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 
 const ServiceDetailCardReviewRows = ({ review }) => {
-    const { _id, serviceName, reviewer, price, email, photo, message } = review;
+    const { serviceName, reviewer, email, photo, message } = review;
 
 
 

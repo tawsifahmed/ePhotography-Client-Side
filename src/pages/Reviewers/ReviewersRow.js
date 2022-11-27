@@ -3,7 +3,7 @@ import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ReviewersRow = ({ review, handleDelete, notify }) => {
-    const { _id, serviceName, reviewer, price, email, phone, message } = review;
+    const { _id, serviceName, email, message } = review;
 
 
 

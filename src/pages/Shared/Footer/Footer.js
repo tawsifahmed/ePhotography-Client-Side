@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../../../src/logo.svg'
 import { CDBFooter, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 
 const Footer = () => {
@@ -27,15 +28,13 @@ const Footer = () => {
                     <small className="ml-2">&copy; ePhotography, 2022. All rights reserved.</small>
                 </CDBBox>
                 <CDBBox display="flex">
-                    <CDBBtn flat color="dark" className="p-2">
-                        <CDBIcon fab icon="facebook-f" />
-                    </CDBBtn>
-                    <CDBBtn flat color="dark" className="mx-3 p-2">
-                        <CDBIcon fab icon="twitter" />
-                    </CDBBtn>
-                    <CDBBtn flat color="dark" className="p-2">
-                        <CDBIcon fab icon="instagram" />
-                    </CDBBtn>
+                    <a className='text-light' href='https://facebook.com/' target="_blank"><FaFacebook className='fs-2'>
+
+                    </FaFacebook></a>
+                    <a className='text-light' href='https://twitter.com/' target="_blank"><FaTwitter className='fs-2 mx-3'></FaTwitter></a>
+
+                    <a className='text-light' href='https://instagram.com/' target="_blank"><FaInstagram className='fs-2'></FaInstagram></a>
+
                 </CDBBox>
             </CDBBox>
         </CDBFooter>

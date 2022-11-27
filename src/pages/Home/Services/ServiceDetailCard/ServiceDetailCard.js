@@ -40,7 +40,8 @@ const ServiceDetailCard = () => {
         fetch('http://localhost:1000/reviewers', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(reviewer)
         })

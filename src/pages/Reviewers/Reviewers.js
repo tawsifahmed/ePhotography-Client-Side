@@ -33,7 +33,10 @@ const Reviewers = () => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
             fetch(`http://localhost:1000/reviewers/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

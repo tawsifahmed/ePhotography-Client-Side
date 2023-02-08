@@ -17,7 +17,6 @@ Live Site: https://ephotography.netlify.app/
 * React Router
 * Netlify 
 * JWT Token
-* React Icons
 * React Toastify
 
 

@@ -1,7 +1,7 @@
 ## Project Description
 Website Name: ePhotography
 
-Live Site: https://visionary-halva-4f4ee4.netlify.app/
+Live Site: https://ephotography.netlify.app/
 ### Website Features 
 * Single Page Application based Site
 * Responsive web design

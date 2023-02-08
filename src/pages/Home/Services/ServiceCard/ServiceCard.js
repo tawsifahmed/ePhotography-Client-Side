@@ -12,7 +12,7 @@ const ServiceCard = ({ service }) => {
     const { _id, img, title, description, price } = service;
     return (
         <div className='text-justify'>
-            <Card className='bg-light border border-white shadow rounded' style={{ width: '18rem', height: '25.4rem' }}>
+            <Card className='bg-light border border-white shadow rounded cardd'>
 
                 <PhotoProvider>
                     <PhotoView variant="top" src={img}>

@@ -2,11 +2,8 @@ import React from 'react';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const ReviewersRow = ({ review, handleDelete, notify }) => {
+const ReviewersRow = ({ review, handleDelete }) => {
     const { _id, serviceName, email, message } = review;
-
-
-
 
     return (
 

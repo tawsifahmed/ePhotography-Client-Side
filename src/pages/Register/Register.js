@@ -58,7 +58,6 @@ const Register = () => {
                 const currentUser = {
                     email: user.email
                 }
-                console.log(currentUser);
 
                 // get jwt token
                 fetch('https://a11-server-side.vercel.app/jwt', {
@@ -70,7 +69,6 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         localStorage.setItem('token', data.token);
                     })
                 navigate(from, { replace: true })

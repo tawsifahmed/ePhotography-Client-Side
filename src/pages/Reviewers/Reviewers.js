@@ -12,6 +12,7 @@ const Reviewers = () => {
     const [reviewers, setReviewers] = useState([])
     useTitle('My Reviews')
 
+    // reviews data load based on users
     useEffect(() => {
         fetch(`https://a11-server-side.vercel.app/reviewers?email=${user?.email}`, {
             headers: {
@@ -29,6 +30,8 @@ const Reviewers = () => {
             })
     }, [user?.email, logOut])
 
+
+    // review data delete method
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
@@ -55,6 +58,7 @@ const Reviewers = () => {
     return (
         <div className='container mx-auto'>
 
+            {/* review table */}
             <Table striped>
                 <thead>
 

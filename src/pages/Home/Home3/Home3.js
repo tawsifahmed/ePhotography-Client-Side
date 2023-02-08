@@ -71,7 +71,7 @@ const Home3 = () => {
                 <br></br>
                 <div className='container'>
                     <h3 className='text-center'>Get my daily Updates</h3>
-                    <h5 className='text-center fw-light'>I give my updates daily at night, 10PM.
+                    <h5 className='text-center fw-light'>Get my updates daily at night, 10PM.
                         To get my updates, subscribe here.
 
                     </h5>
